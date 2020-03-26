@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Registrar persona</h1>
+        <p>persona-registro works!</p>
+    </div>
+    <div class="col-md-12">
+        <div class="card card-user">
+            <div class="card-body">
+                <form >
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Identificacion</label>
+                                <input type="number"  name="identificacion"  [(ngModel)]="persona.identificacion" class="form-control" [class]="(!errorIdentificacion && enviarDatos) ? 'is-valid form-control' : (errorIdentificacion && enviarDatos) ? 'is-invalid form-control' : 'form-control'" />
+                                <div *ngIf="errorIdentificacion" class="invalid-feedback">Este campo es obligatorio</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-1">                            
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text"  name="nombre"  [(ngModel)]="persona.nombre" class="form-control" [class]="(!errorNombre && enviarDatos) ? 'is-valid form-control' : (errorNombre && enviarDatos) ? 'is-invalid form-control' : 'form-control'" />
+                                <div *ngIf="errorNombre" class="invalid-feedback">Este campo es obligatorio</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Sexo</label>
+                                <select name="sexo"  [(ngModel)]="persona.sexo" class="form-control" [class]="(!errorSexo && enviarDatos) ? 'is-valid form-control' : (errorSexo && enviarDatos) ? 'is-invalid form-control' : 'form-control'" >
+                                    <option value="" style="display: none;">Seleccione una opción...</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="M">Masculino</option>
+                                </select>
+                                <div *ngIf="errorSexo" class="invalid-feedback">Este campo es obligatorio</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-1">
+                            <div class="form-group">
+                                <label>Edad</label>
+                                <input type="number"  name="edad"  [(ngModel)]="persona.edad" class="form-control" [class]="(!errorEdad && enviarDatos) ? 'is-valid form-control' : (errorEdad && enviarDatos) ? 'is-invalid form-control' : 'form-control'" />
+                                <div *ngIf="errorEdad" class="invalid-feedback">Este campo es obligatorio</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Pulsacion</label>
+                                <input type="number"  name="pulsacion"  [(ngModel)]="persona.pulsacion" class="form-control" readonly />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button class="btn btn-outline-success" (click)="add()">Registrar</button>
+                            <button type="reset" class="btn btn-outline-secondary">Cancelar</button>                            
+                        </div>
+                      </div>
+                </form> 
+            </div>
+        </div>
+                   
+    </div>
+</div>
+
