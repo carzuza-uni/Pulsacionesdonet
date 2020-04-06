@@ -21,6 +21,29 @@ namespace my_new_app
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //Agregar OpenApi Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "PULSACIONES API",
+                    Description = "PULSACIONES API - ASP.NET Core Web API",
+                    TermsOfService = new Uri("https://cla.dotnetfoundation.org/"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Unicesar",
+                        Email = string.Empty,
+                        Url = new Uri("https://github.com/carzuza-uni/Pulsacionesdone/tree/master/pulsacionesdonet"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Licencia dotnet foundation",
+                        Url = new Uri("https://www.byasystems.co/license"),
+                    }
+                });
+            });
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -57,6 +80,15 @@ namespace my_new_app
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
+            //start swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+            //end swagger
+
 
             app.UseSpa(spa =>
             {

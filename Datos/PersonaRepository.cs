@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System;
 using Entity;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace Datos
 {
