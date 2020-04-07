@@ -27,8 +27,20 @@ namespace pulsacionesdonet.Controllers
         [HttpGet]
         public IEnumerable<PersonaViewModel> Gets()
         {
-            var personas = _personaService.ConsultarTodos().Select(p=> new PersonaViewModel(p));
+            List<Persona> personas = new List<Persona>();        
+            for (byte i = 0; i < 5; i ++){
+                // Add parts to the list.
+                Persona p = new Persona();
+                p.Identificacion = "23332";
+                p.Nombre = "Carlos";
+                p.Edad = 23;
+                p.Sexo = "M";
+                p.Pulsacion = 23;
+                personas.Add(p);
+            }
             return personas;
+            //var personas = _personaService.ConsultarTodos().Select(p=> new PersonaViewModel(p));
+            //return personas;
         }
 
         // GET: api/Persona/5

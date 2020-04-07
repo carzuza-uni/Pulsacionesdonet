@@ -14,11 +14,9 @@ export class PersonaConsultaComponent implements OnInit {
   constructor(private personaService: PersonaService) { }
 
   ngOnInit() {
-    this.get();      
-  }
-
-  get(){
-    this.personas = this.personaService.get();
+    this.personaService.get().subscribe(result => {
+      this.personas = result;
+    });   
   }
 
 }

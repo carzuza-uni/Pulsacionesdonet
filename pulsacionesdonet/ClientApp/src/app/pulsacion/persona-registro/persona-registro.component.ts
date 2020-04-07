@@ -58,7 +58,12 @@ export class PersonaRegistroComponent implements OnInit {
       pulsacion = 0;
     }
     this.persona.pulsacion = pulsacion;
-    this.personaService.post(this.persona);
+    this.personaService.post(this.persona).subscribe(p => {
+      if (p != null) {
+        alert('Persona creada!');
+        this.persona = p;
+      }
+    });
     alert('Se agrego una nueva persona: '+ JSON.stringify(this.persona));
   }
 
