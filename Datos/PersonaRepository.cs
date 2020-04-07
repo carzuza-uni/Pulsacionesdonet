@@ -30,6 +30,16 @@ namespace Datos
             }
         }
 
+        public void Eliminar(Persona persona)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "Delete from persona where Identificacion=@Identificacion";
+                command.Parameters.AddWithValue("@Identificacion", persona.Identificacion);
+                command.ExecuteNonQuery();
+            }
+        }
+
         public List<Persona> ConsultarTodos()
         {
             SqlDataReader dataReader;

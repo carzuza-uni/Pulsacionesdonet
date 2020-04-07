@@ -1,4 +1,3 @@
-  
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace pulsacionesdonet.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PersonaController
+    public class PersonaController : ControllerBase
     {
         private readonly PersonaService _personaService;
         public IConfiguration Configuration { get; }
@@ -37,7 +36,9 @@ namespace pulsacionesdonet.Controllers
         public ActionResult<PersonaViewModel> Get(string identificacion)
         {
             var persona = _personaService.BuscarxIdentificacion(identificacion);
-            if (persona == null) return NotFound();
+            if (persona == null){
+                return NotFound();
+            } 
             var personaViewModel = new PersonaViewModel(persona);
             return personaViewModel;
         }

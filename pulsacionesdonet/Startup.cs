@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using System;
 
 namespace my_new_app
 {
@@ -29,17 +31,17 @@ namespace my_new_app
                     Version = "v1",
                     Title = "PULSACIONES API",
                     Description = "PULSACIONES API - ASP.NET Core Web API",
-                    TermsOfService = new Uri("https://cla.dotnetfoundation.org/"),
+                    //TermsOfService = new Uri("https://cla.dotnetfoundation.org/"),
                     Contact = new OpenApiContact
                     {
                         Name = "Unicesar",
                         Email = string.Empty,
-                        Url = new Uri("https://github.com/carzuza-uni/Pulsacionesdone/tree/master/pulsacionesdonet"),
+                        //Url = new Uri("https://github.com/carzuza-uni/Pulsacionesdone/tree/master/pulsacionesdonet"),
                     },
                     License = new OpenApiLicense
                     {
                         Name = "Licencia dotnet foundation",
-                        Url = new Uri("https://www.byasystems.co/license"),
+                        //Url = new Uri("https://www.byasystems.co/license"),
                     }
                 });
             });
