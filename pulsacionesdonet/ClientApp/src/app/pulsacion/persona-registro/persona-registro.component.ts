@@ -19,7 +19,7 @@ export class PersonaRegistroComponent implements OnInit {
   constructor(private personaService: PersonaService) { }
 
   ngOnInit() {
-    this.persona = new Persona;
+    this.persona = new Persona();
   }
 
   add(){    
@@ -58,6 +58,7 @@ export class PersonaRegistroComponent implements OnInit {
       pulsacion = 0;
     }
     this.persona.pulsacion = pulsacion;
+    this.persona.identificacion = ""+this.persona.identificacion;
     this.personaService.post(this.persona).subscribe(p => {
       if (p != null) {
         alert('Persona creada!');
